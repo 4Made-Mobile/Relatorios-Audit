@@ -2,11 +2,12 @@
 include_once '../../verificaLogin.php';
 include_once '../../ControllerAudit/ControllerGrafico.php';
 include_once '../../Model/AnaliseDeProduto.php';
+include_once '../../Fachada/Fachada.php';
 $obj1 = new ControllerGrafico();
 $obj1->abrirBD();
 ?>
 <script src="Chart.min.js"></script>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 3.1.3
 Author: KeenThemes
@@ -347,12 +348,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <br/>
                                         <br/>
                                         <div style="text-align: center">
-                                        <i class="fa fa-square" style="color: #F7464A"></i> Pontos de Venda 
-                                        <i class="fa fa-square" style="color: #006dcc"></i> Media 
-                                        <i class="fa fa-square" style="color: #00ff00"></i> Presença 
-                                        <i class="fa fa-square" style="color: #22cfc6"></i> Cobertura 
+                                        <i class="fa fa-square" style="color: #F7464A"></i> Pontos de Venda
+                                        <i class="fa fa-square" style="color: #006dcc"></i> Media
+                                        <i class="fa fa-square" style="color: #00ff00"></i> Presença
+                                        <i class="fa fa-square" style="color: #22cfc6"></i> Cobertura
                                         </div>
-                                        
+
                                         <script type="text/javascript">
 
                                             var info = <?php echo json_encode($array); ?>;
@@ -1093,23 +1094,14 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END CONTAINER -->
         </div>
         <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            <div class="page-footer-inner">
-                2014 &copy; Audit - 4made.
-            </div>
-            <div class="page-footer-tools">
-                <span class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </span>
-            </div>
-        </div>
-        <!-- END FOOTER -->
+        <?php
+          $fachada->footer();
+        ?>
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE PLUGINS -->
         <!--[if lt IE 9]>
         <script src="../../assets/global/plugins/respond.min.js"></script>
-        <script src="../../assets/global/plugins/excanvas.min.js"></script> 
+        <script src="../../assets/global/plugins/excanvas.min.js"></script>
         <![endif]-->
         <script src="../../assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="../../assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
