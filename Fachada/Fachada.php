@@ -43,7 +43,7 @@ class Fachada {
             echo $ex;
         }
     }
-
+    
     public function listCliente(){
         try{
             $cliente = new ControllerCliente();
@@ -53,7 +53,7 @@ class Fachada {
             echo $ex;
         }
     }
-
+    
     public function countCliente(){
         try{
             $cliente = new ControllerCliente();
@@ -76,7 +76,7 @@ class Fachada {
 
         }
     }
-
+    
     public function visitaMes(){
         try{
             $grafico = new ControllerGrafico();
@@ -88,25 +88,7 @@ class Fachada {
             echo $ex;
         }
     }
-
-    public function navbar(){
-      try{
-        $layout = new ControllerLayout();
-        $layout->navbar();
-      }catch(Excepetion $ex){
-        echo $ex;
-      }
-    }
-
-    public function header(){
-      try{
-        $layout = new ControllerLayout();
-        $layout->header();
-      }catch(Excepetion $ex){
-        echo $ex;
-      }
-    }
-
+    
     public function footer(){
         try{
             $layout = new ControllerLayout();

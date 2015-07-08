@@ -4,7 +4,7 @@ include_once '../../Fachada/Fachada.php';
 $fachada = new Fachada();
 ?>
 <!DOCTYPE html>
-<!--
+<!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 3.1.3
 Author: KeenThemes
@@ -66,11 +66,130 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
     <body class="page-header-fixed page-quick-sidebar-over-content">
         <!-- BEGIN HEADER -->
-        <?php $fachada->navbar(); ?>
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="index.php">
+                        <img src="../../assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+                    </a>
+                    <div class="menu-toggler sidebar-toggler hide">
+                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <li class="dropdown dropdown-user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username username-hide-on-mobile">
+                                    <?php echo $_SESSION['login']; ?> </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="http://www.auditmais.com.br">
+                                        <i class="icon-lock"></i> Voltar para o site </a>
+                                </li>
+                                <li>
+                                    <a href="deslogar.php">
+                                        <i class="icon-key"></i> Sair </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
         <!-- END HEADER -->
         <div class="clearfix">
         </div>
-        <?php $fachada->header(); ?>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                        <li class="sidebar-toggler-wrapper">
+                            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                            <div class="sidebar-toggler">
+                            </div>
+                            <!-- END SIDEBAR TOGGLER BUTTON -->
+                        </li>
+                        <li class="start active open">
+                            <a href="javascript:;">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Gráficos</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="active">
+                                    <a href="grafico.php">
+                                        <i class="icon-graph"></i>
+                                        Gerar Gráfico</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-briefcase"></i>
+                                <span class="title">Tabelas</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="listaAnaliseProduto.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Analise de Produto
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="listaAnalisePreco.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Analise de Preço
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="listaRoteiros.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Roteiros</a>
+                                </li>
+                                <li>
+                                    <a href="listaVisitas.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Visitas</a>
+                                </li>
+                                <li>
+                                    <a href="listaProdutos.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Produtos</a>
+                                </li>
+                                <li>
+
+                                    <a href="listaCliente.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Clientes</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END SIDEBAR MENU -->
+                </div>
+            </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
@@ -196,7 +315,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet solid bordered grey-cararra">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-bar-chart-o"></i>Visitas do mês
+                                        <i class="fa fa-bar-chart-o"></i>Visitas do mês                                    
                                     </div>
                                     <div class="page-toolbar">
                                         <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
@@ -316,7 +435,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN CORE PLUGINS -->
         <!--[if lt IE 9]>
         <script src="../../assets/global/plugins/respond.min.js"></script>
-        <script src="../../assets/global/plugins/excanvas.min.js"></script>
+        <script src="../../assets/global/plugins/excanvas.min.js"></script> 
         <![endif]-->
         <script src="../../assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="../../assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -364,7 +483,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             Metronic.init(); // init metronic core componets
                                             Layout.init(); // init layout
                                             QuickSidebar.init(); // init quick sidebar
-                                            Demo.init(); // init demo features
+                                            Demo.init(); // init demo features 
                                             Index.init();
                                             Index.initDashboardDaterange();
                                             Index.initJQVMAP(); // init index page's custom scripts
