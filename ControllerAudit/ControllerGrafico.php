@@ -35,7 +35,6 @@ class ControllerGrafico extends ControllerBD{
             }
             foreach ($lista->fetchAll() as $linha) {
                 $lista2 = $this->listVisitaConcorrencia($linha['produto_concorrencia_id']);
-                print_r($lista2->fetchAll());
                 foreach ($lista2->fetchAll() AS $linha) {
                     array_push($array1, $this->analiseConcorrencia($linha));
                 }
@@ -48,7 +47,7 @@ class ControllerGrafico extends ControllerBD{
             echo "ERRO: " + $ex;
         }
     }
-    
+
     public function visitaMes($data1, $data2){
         try{
             $this->abrirBD();
