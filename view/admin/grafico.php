@@ -3,6 +3,7 @@ include_once '../../verificaLogin.php';
 include_once '../../ControllerAudit/ControllerGrafico.php';
 include_once '../../Model/AnaliseDeProduto.php';
 include_once '../../Fachada/Fachada.php';
+$fachada = new Fachada();
 $obj1 = new ControllerGrafico();
 $obj1->abrirBD();
 ?>
