@@ -4,7 +4,7 @@ include_once '../../Fachada/Fachada.php';
 $fachada = new Fachada();
 ?>
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 3.1.3
 Author: KeenThemes
@@ -315,7 +315,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet solid bordered grey-cararra">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-bar-chart-o"></i>Visitas do mês                                    
+                                        <i class="fa fa-bar-chart-o"></i>Visitas do mês
                                     </div>
                                     <div class="page-toolbar">
                                         <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
@@ -368,6 +368,11 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <!-- Gráfico Pizza, AGAIN! -->
                         </div>
+                        <?php
+                          $visitas = $fachada->visitaMes(1);
+                          $totalVisitas = $visitas[0];
+                          $totalClientes = $visitas[1];
+                        ?>
                         <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
                             <div class="portlet solid grey-cararra bordered">
@@ -388,23 +393,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="row">
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-success">
-                                                    Total de visitas: </span>
-                                                <h3>100</h3>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                                                <span c lass="label label-sm label-info">
-                                                    Tax: </span>
-                                                <h3>$134,900</h3>
+                                                    Clientes Visitados: </span>
+                                                <h3><?php echo $totalVisitas; ?></h3>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-danger">
-                                                    Shipment: </span>
-                                                <h3>$1,134</h3>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                                                <span class="label label-sm label-warning">
-                                                    Orders: </span>
-                                                <h3>235090</h3>
+                                                    Clientes não visitados:
+                                                </span>
+                                                <h3><?php echo $totalClientes - $totalVisitas; ?></h3>
                                             </div>
                                         </div>
                                     </div>
@@ -435,7 +431,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN CORE PLUGINS -->
         <!--[if lt IE 9]>
         <script src="../../assets/global/plugins/respond.min.js"></script>
-        <script src="../../assets/global/plugins/excanvas.min.js"></script> 
+        <script src="../../assets/global/plugins/excanvas.min.js"></script>
         <![endif]-->
         <script src="../../assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="../../assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -483,7 +479,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             Metronic.init(); // init metronic core componets
                                             Layout.init(); // init layout
                                             QuickSidebar.init(); // init quick sidebar
-                                            Demo.init(); // init demo features 
+                                            Demo.init(); // init demo features
                                             Index.init();
                                             Index.initDashboardDaterange();
                                             Index.initJQVMAP(); // init index page's custom scripts
