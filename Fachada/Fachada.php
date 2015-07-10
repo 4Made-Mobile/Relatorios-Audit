@@ -97,6 +97,18 @@ class Fachada {
         }
     }
 
+    public function visitasRealizadas(){
+      try{
+        $grafico = new ControllerGrafico();
+        $data1 = date("Y-m-d");
+        $data2 = date("Y-m-d", strtotime("-15 days"));
+        $visitasRealizadas = $grafico->visitasRealizadas($data1, $data2);
+        return $visitasRealizadas;
+      }catch(Exception $ex){
+        echo $ex;
+      }
+    }
+
     public function footer(){
         try{
             $layout = new ControllerLayout();

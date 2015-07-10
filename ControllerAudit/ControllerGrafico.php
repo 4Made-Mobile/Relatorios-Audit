@@ -61,6 +61,16 @@ class ControllerGrafico extends ControllerBD{
         }
     }
 
+    public function visitasRealizadas($data1, $data2){
+      try{
+        $this->abrirBD();
+        $query = $this->pdo->query("SELECT *from wfcre593_auditapi.visita where data between '$data2' and '$data1' WHERE visita_status_id = 1");
+        return $query;
+      }catch(PDOException $ex){
+        echo $ex;
+      }
+    }
+
 //Lista a quantidade de pontos de venda
     private function listCliente() {
         try {

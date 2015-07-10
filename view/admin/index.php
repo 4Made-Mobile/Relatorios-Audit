@@ -180,6 +180,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                         Produtos</a>
                                 </li>
                                 <li>
+                                    <a href="listaProdutosConrrencia.php">
+                                        <i class="icon-arrow-right"></i>
+                                        Produtos Concorrencia</a>
+                                </li>
+                                <li>
 
                                     <a href="listaCliente.php">
                                         <i class="icon-arrow-right"></i>
