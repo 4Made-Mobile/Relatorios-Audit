@@ -243,11 +243,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <?php echo $fachada->countCliente(); ?>
                                     </div>
                                     <div class="desc">
-
+                                        Total de Clientes
                                     </div>
                                 </div>
                                 <a class="more" href="listaCliente.php">
-                                    Total de Clientes <i class="m-icon-swapright m-icon-white"></i>
+                                    Lista Geral <i class="m-icon-swapright m-icon-white"></i>
                                 </a>
                             </div>
                         </div>
@@ -258,14 +258,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        12,5M$
+                                        1000
                                     </div>
                                     <div class="desc">
-                                        Total Profit
+                                        Produtos Pesquisados
                                     </div>
                                 </div>
                                 <a class="more" href="#">
-                                    View more <i class="m-icon-swapright m-icon-white"></i>
+                                  Pesquisa de Produtos <i class="m-icon-swapright m-icon-white"></i>
                                 </a>
                             </div>
                         </div>
@@ -276,14 +276,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        549
+                                        500
                                     </div>
                                     <div class="desc">
-                                        New Orders
+                                        Produtos Concorrencia
                                     </div>
                                 </div>
                                 <a class="more" href="#">
-                                    View more <i class="m-icon-swapright m-icon-white"></i>
+                                    Pesquisa de Produtos <i class="m-icon-swapright m-icon-white"></i>
                                 </a>
                             </div>
                         </div>
@@ -294,14 +294,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        +89%
+                                        100
                                     </div>
                                     <div class="desc">
-                                        Brand Popularity
+                                        Meta de Visitas
                                     </div>
                                 </div>
                                 <a class="more" href="#">
-                                    View more <i class="m-icon-swapright m-icon-white"></i>
+                                    Lista da Semana <i class="m-icon-swapright m-icon-white"></i>
                                 </a>
                             </div>
                         </div>
@@ -325,7 +325,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!-- Gráfico PIZZA! -->
                                 <div class="box-chart">
-                                    <canvas id="GraficoPizza" style="width:100%;"></canvas>
+                                    <canvas id="GraficoPizza"></canvas>
                                     <br>
                                     Clientes Visitados <i class="fa fa-square" style="color: #F7464A"></i>
                                     <br>
@@ -333,8 +333,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 </div>
                                 <?php
-                                $array = $fachada->visitaMes();
-                                if ($array != NULL) {
+                                $array = $fachada->visitaMes(null);
+                                if (true) {
                                     ?>
                                     <script type="text/javascript">
                                         var info = <?php echo json_encode($array); ?>;
@@ -357,10 +357,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                             }
                                         ];
 
-                                        window.onload = function () {
-                                            var ctx = document.getElementById("GraficoPizza").getContext("2d");
-                                            var PizzaChart = new Chart(ctx).Pie(data, options);
-                                        };
                                     </script>
                                     <?php
                                 }
@@ -382,31 +378,68 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <div id="site_activities_loading">
-                                        <img src="../../assets/admin/layout/img/loading.gif" alt="loading"/>
-                                    </div>
-                                    <div id="site_activities_content" class="display-none">
-                                        <div id="site_activities" style="height: 228px;">
-                                        </div>
-                                    </div>
+                                  <div class="box-chart">
+                                    <canvas id="GraficoLine"></canvas>
+                                  </div>
                                     <div style="margin: 20px 0 10px 30px">
                                         <div class="row">
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-success">
-                                                    Clientes Visitados: </span>
-                                                <h3><?php echo $totalVisitas; ?></h3>
+                                                     Visitas realizadas   </span>
+                                                <h3><?php echo "200"; ?></h3>
                                             </div>
+
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-danger">
-                                                    Clientes não visitados:
-                                                </span>
-                                                <h3><?php echo $totalClientes - $totalVisitas; ?></h3>
+                                                     Visitas não realizadas </span>
+                                                <h3><?php echo "10"; ?></h3>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END PORTLET-->
+                            <script type="text/javascript">
+                                var options1 = {
+                                    responsive:true
+                                };
+
+                                var data1 = {
+                                    //Treta, Pegar a data atual, faz um for regressivo de 30 a 1 e ir substraindo na data atual
+                                    labels: ["01/JUL", "02/JUL", "03/JUL", "04/JUL", "05/JUL", "06/JUL", "07/JUL", "08/JUL", "09/JUL", "10/JUL", "11/JUL", "12/JUL"],
+                                    datasets: [
+                                        {
+                                            label: "visitas realizadas",
+                                            fillColor: "rgba(220,220,220,0.2)",
+                                            strokeColor: "rgba(220,220,220,1)",
+                                            pointColor: "rgba(220,220,220,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(220,220,220,1)",
+                                            data: [20, 15, 21, 29, 28, 27, 18, 19, 19, 19, 24, 10]
+                                        },
+                                        {
+                                            label: "Não realizadas",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(151,187,205,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(151,187,205,1)",
+                                            data: [1, 3, 0, 0, 0, 1, 2, 3, 4, 6, 1, 12]
+                                        }
+                                    ]
+                                };
+                            </script>
+                            <script type="text/javascript">
+                              window.onload = function(){
+                                 //Gráfico Pizza
+                                  var grafico = document.getElementById("GraficoPizza").getContext("2d");
+                                  var PizzaChart = new Chart(grafico).Pie(data, options);
+                                  //Gráfico Line
+                                  var line = document.getElementById("GraficoLine").getContext("2d");
+                                  var LineChart = new Chart(line).Line(data1, options1);
+                              }
+                          </script>
                         </div>
                     </div>
                     <div class="clearfix">
@@ -482,7 +515,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             Demo.init(); // init demo features
                                             Index.init();
                                             Index.initDashboardDaterange();
-                                            Index.initJQVMAP(); // init index page's custom scripts
+                                            //Index.initJQVMAP(); // init index page's custom scripts
                                             Index.initCalendar(); // init index page's custom scripts
                                             Index.initCharts(); // init index page's custom scripts
                                             Index.initChat();
