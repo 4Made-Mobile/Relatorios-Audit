@@ -61,13 +61,33 @@ class ControllerGrafico extends ControllerBD{
         }
     }
 
-    public function visitasRealizadas($data1, $data2){
+    private function visitaDiaFeita($data){
       try{
-        $this->abrirBD();
-        $query = $this->pdo->query("SELECT *from wfcre593_auditapi.visita where data between '$data2' and '$data1' WHERE visita_status_id = 1");
+        $query = $this->pdo->query("SELECT data FROM wfcre593_auditapi.visita where data = '$data' and visita_status_id = 1");
         return $query;
       }catch(PDOException $ex){
         echo $ex;
+      }
+    }
+
+    private function visitaDiaNaoFeita($data){
+      try{
+      $query = $this->pdo->query("SELECT data FROM wfcre593_auditapi.visita where data = '$data' and visita_status_id != 1");
+      return $query;
+      }catch(PDOException $ex){
+        echo $ex;
+      }
+    }
+
+    public function visitaDia($data){
+      try{
+        $this->abrirBD();
+        $count1 = count($this->visitaDiaFeita($data)->fetchAll());
+        $count2 = count($this->visitaDiaNaoFeita($data)->fetchAll());
+        $array = array($count1, $count2);
+        return $array;
+      }catch(PDOException $ex){
+          echo $ex;
       }
     }
 

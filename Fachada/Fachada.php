@@ -97,6 +97,16 @@ class Fachada {
         }
     }
 
+    public function visitaDia($data){
+      try{
+        $visitaDia = new ControllerGrafico();
+        $res = $visitaDia->visitaDia($data);
+        return $res;
+      }catch(Exception $ex){
+        echo $ex;
+      }
+    }
+
     public function visitasRealizadas(){
       try{
         $grafico = new ControllerGrafico();

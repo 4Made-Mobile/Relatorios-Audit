@@ -370,9 +370,17 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!-- Gráfico Pizza, AGAIN! -->
                         </div>
                         <?php
-                          $visitas = $fachada->visitaMes(1);
-                          $totalVisitas = $visitas[0];
-                          $totalClientes = $visitas[1];
+                          $arrayVisita = array();
+                          $arrayDias = array();
+
+                          for($i = 0; $i < 15; $i++){
+                            $data = date("Y-m-d", strtotime("-$i days"));
+                            $dias = date("d-M", strtotime("-$i days"));
+                            $arrayVisita[] = $fachada->visitaDia($data);
+                            $arrayDias[] = $dias;
+                            $visitaSim = $arrayVisita[i][0] + $visitaSim;
+                            $visitaNao = $arrayVisita[i][1] + $visitaNao;
+                          }
                         ?>
                         <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
@@ -391,26 +399,35 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-success">
                                                      Visitas realizadas   </span>
-                                                <h3><?php echo "200"; ?></h3>
+                                                <h3><?php echo $visitaSim; ?></h3>
                                             </div>
 
                                             <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                                 <span class="label label-sm label-danger">
                                                      Visitas não realizadas </span>
-                                                <h3><?php echo "10"; ?></h3>
+                                                <h3><?php echo $visitaNao; ?></h3>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <script type="text/javascript">
+                                var visitas = <?php echo json_encode($arrayVisita); ?>;
+                                var dias = <?php echo json_encode($arrayDias); ?>;
+                                var dados1 = [];
+                                var dados2 = [];
+                                var i = 0;
+                                for(i = 0; i < 15; i++){
+                                  dados1.push(visitas[i][0]);
+                                  dados2.push(visitas[i][1]);
+                                }
                                 var options1 = {
                                     responsive:true
                                 };
 
                                 var data1 = {
                                     //Treta, Pegar a data atual, faz um for regressivo de 30 a 1 e ir substraindo na data atual
-                                    labels: ["01/JUL", "02/JUL", "03/JUL", "04/JUL", "05/JUL", "06/JUL", "07/JUL", "08/JUL", "09/JUL", "10/JUL", "11/JUL", "12/JUL"],
+                                    labels: dias.reverse(),
                                     datasets: [
                                         {
                                             label: "visitas realizadas",
@@ -420,7 +437,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             pointStrokeColor: "#fff",
                                             pointHighlightFill: "#fff",
                                             pointHighlightStroke: "rgba(220,220,220,1)",
-                                            data: [20, 15, 21, 29, 28, 27, 18, 19, 19, 19, 24, 10]
+                                            data: dados1.reverse()
                                         },
                                         {
                                             label: "Não realizadas",
@@ -430,7 +447,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             pointStrokeColor: "#fff",
                                             pointHighlightFill: "#fff",
                                             pointHighlightStroke: "rgba(151,187,205,1)",
-                                            data: [1, 3, 0, 0, 0, 1, 2, 3, 4, 6, 1, 12]
+                                            data: dados2.reverse()
                                         }
                                     ]
                                 };
