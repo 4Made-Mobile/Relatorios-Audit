@@ -2,6 +2,8 @@
 include_once "../../ControllerAudit/ControllerAnaliseProduto.php";
 include_once "../../Model/AnaliseDeProduto.php";
 include_once "../../verificaLogin.php";
+include_once "../../Fachada/Fachada.php";
+$fachada = new Fachada();
 ?>
 <!DOCTYPE html>
 <!--
@@ -139,14 +141,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="grafico2.php">
-                                        <i class="icon-graph"></i>
-                                        Gráfico 2</a>
-                                </li>
-                                <li>
-                                    <a href="grafico3.php">
-                                        <i class="icon-graph"></i>
-                                        Gráfico 3</a>
+                                  <a href="grafico.php">
+                                    <i class="icon-graph"></i>
+                                    Gráfico</a>
                                 </li>
                             </ul>
                         </li>
