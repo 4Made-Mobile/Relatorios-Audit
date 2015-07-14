@@ -4,7 +4,7 @@ include_once "../../Model/AnaliseDeProduto.php";
 include_once "../../verificaLogin.php";
 ?>
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 3.1.3
 Author: KeenThemes
@@ -354,22 +354,15 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                         <!-- END CONTAINER -->
                         <!-- BEGIN FOOTER -->
-                        <div class="page-footer">
-                            <div class="page-footer-inner">
-                                2014 &copy; Audit - 4made.
-                            </div>
-                            <div class="page-footer-tools">
-                                <span class="go-top">
-                                    <i class="fa fa-angle-up"></i>
-                                </span>
-                            </div>
-                        </div>
+                        <?php
+                          $fachada->footer();
+                        ?>
                         <!-- END FOOTER -->
                         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
                         <!-- BEGIN CORE PLUGINS -->
                         <!--[if lt IE 9]>
                         <script src="../../assets/global/plugins/respond.min.js"></script>
-                        <script src="../../assets/global/plugins/excanvas.min.js"></script> 
+                        <script src="../../assets/global/plugins/excanvas.min.js"></script>
                         <![endif]-->
                         <script src="../../assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
                         <script src="../../assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -416,7 +409,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 Metronic.init(); // init metronic core componets
                                 Layout.init(); // init layout
                                 QuickSidebar.init(); // init quick sidebar
-                                Demo.init(); // init demo features 
+                                Demo.init(); // init demo features
                                 Index.init();
                                 Index.initDashboardDaterange();
                                 Index.initJQVMAP(); // init index page's custom scripts
