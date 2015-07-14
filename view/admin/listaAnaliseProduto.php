@@ -144,16 +144,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                         Gerar Gráfico
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="grafico2.php">
-                                        <i class="icon-graph"></i>
-                                        Gráfico 2</a>
-                                </li>
-                                <li>
-                                    <a href="grafico3.php">
-                                        <i class="icon-graph"></i>
-                                        Gráfico 3</a>
-                                </li>
                             </ul>
                         </li>
                         <li>

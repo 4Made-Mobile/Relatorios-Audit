@@ -138,11 +138,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="active">
-                                    <a href="grafico.php">
-                                        <i class="icon-graph"></i>
-                                        Gerar Gráfico</a>
-                                </li>
                                 <li>
                                     <a href="grafico2.php">
                                         <i class="icon-graph"></i>
