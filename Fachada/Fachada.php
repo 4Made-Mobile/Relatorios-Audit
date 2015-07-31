@@ -33,20 +33,6 @@ class Fachada {
         }
     }
 
-    public function listAnaliseProduto($subcategoria){
-      try{
-        $array = array();
-        $analiseProduto = new ControllerAnaliseProduto();
-        $produtos = $this->listProdutoCategoria($subcategoria);
-        while ($produto = $produtos->fetchAll(PDO::FETCH_OBJ)) {
-          $array[] = $analiseProduto->listAnaliseProduto($produto->id);
-        }
-        return $array;
-      }catch(Exception $ex){
-          echo $ex;
-      }
-    }
-
     //Lista dos produtos
     public function listProduto() {
         try {
@@ -56,17 +42,6 @@ class Fachada {
         } catch (Exception $ex) {
             echo $ex;
         }
-    }
-
-    //Lista de alguns produtos de acordo com as subcategorias
-    public function listProdutoCategoria($subcategoria){
-      try{
-        $obj = new ControllerProduto();
-        $query = $obj->listProdutoCategoria($subcategoria);
-        return $query
-      }catch(Exception $ex){
-        echo $ex;
-      }
     }
 
     public function listCliente(){

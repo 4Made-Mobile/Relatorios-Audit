@@ -1,5 +1,7 @@
 <?php
 include_once '../../verificaLogin.php';
+include_once '../../Fachada/Fachada.php';
+$fachada = new Fachada();
 ?>
 <!DOCTYPE html>
 <!--

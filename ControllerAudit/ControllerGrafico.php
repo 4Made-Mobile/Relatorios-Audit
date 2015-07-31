@@ -26,9 +26,10 @@ class ControllerGrafico extends ControllerBD{
 //Gera as informações para o gráfico e se conecta com a  view
     public function graficoConcorrencia($produto) {
         try {
-            //abri o banco de dados
             $array1 = array();
+            //analistaProduto é a analise do seu próprio produto
             $analistaProduto = $this->analiseProduto($this->listVisita($produto)->fetchAll());
+            //Nessa parte a partir do produto é selecionado a lista dos concorrentes
             $lista = $this->listConcorrencia($produto);
             if (empty($lista)) {
                 return false;
@@ -128,6 +129,8 @@ class ControllerGrafico extends ControllerBD{
                 $obj->idProduto = $row->id_produto;
                 $obj->idPesquisaPreco = $row->id_pesquisapreco;
                 $obj->descricao = $row->descricao;
+                $obj->descricao = utf8_encode($obj->descricao);
+                $obj->descricao = utf8_encode($obj->descricao);
                 $obj->pdv = count($this->listCliente()->fetchAll());
                 $obj->media = $row->preco + $obj->media;
                 $obj->presenca = count($lista);
@@ -148,6 +151,7 @@ class ControllerGrafico extends ControllerBD{
                 $obj->idProduto = $row['id_produto'];
                 $obj->idPesquisaPreco = $row['id_pesquisapreco'];
                 $obj->descricao = $row['descricao'];
+                $obj->descricao = utf8_encode($obj->descricao);
                 $obj->pdv = count($this->listCliente()->fetchAll());
                 $obj->media = $row['preco'] + $obj->media;
                 $obj->presenca = count($lista);

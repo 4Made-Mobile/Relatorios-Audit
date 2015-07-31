@@ -23,7 +23,6 @@ class ControllerAnaliseProduto {
 
     public function listAnaliseProduto($produto) {
         try {
-            $this->abrirBD();
             $query = $this->listVisita($produto);
             $obj = new AnaliseDeProduto();
             $lista = $query->fetchAll(PDO::FETCH_OBJ);

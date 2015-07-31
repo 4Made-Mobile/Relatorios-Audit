@@ -286,11 +286,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <tr>
                                                     <td><?php echo $linha['id_produto']; ?></td>
                                                     <td><?php echo $linha['cod_ean13']; ?></td>
-                                                    <td><?php echo $linha['descricao_produto']; ?></td>
+                                                    <td><?php echo utf8_encode($linha['descricao_produto']); ?></td>
                                                     <td><?php echo $linha['preco_min']; ?></td>
                                                     <td><?php echo $linha['preco_max']; ?></td>
-                                                    <td><?php echo $linha['descricao']; ?></td>
-                                                    <td><?php echo $linha['descricao_categoria']; ?></td>
+                                                    <td><?php echo utf8_encode($linha['descricao']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['descricao_categoria']); ?></td>
                                                 </tr>
                                                 <?php
                                             }

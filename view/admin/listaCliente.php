@@ -291,12 +291,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $linha['id']; ?></td>
-                                                    <td><?php echo $linha['nome_fantasia']; ?></td>
-                                                    <td><?php echo $linha['cpf_cnpj']; ?></td>
-                                                    <td><?php echo $linha['endereco']; ?></td>
-                                                    <td><?php echo $linha['bairro']; ?></td>
-                                                    <td><?php echo $linha['cidade']; ?></td>
-                                                    <td><?php echo $linha['estado']; ?></td>
+                                                    <td><?php echo utf8_encode($linha['nome_fantasia']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['cpf_cnpj']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['endereco']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['bairro']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['cidade']); ?></td>
+                                                    <td><?php echo utf8_encode($linha['estado']); ?></td>
                                                     <td><?php
                                                         if ($linha['telefone'] == null) {
                                                             echo "Vazio";

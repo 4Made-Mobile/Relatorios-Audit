@@ -313,9 +313,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <tbody>
                                             <?php
                                             if (!empty($_GET['subcategoria'])) {
-                                                //Tudo é feito na fachada
-                                                $analiseProduto = $fachada->listAnaliseProduto($_GET['subcategoria']);
-                                                foreach ($analiseProduto as $query) {
+                                                $bd = new ControllerAnaliseProduto();
+                                                $bd->abrirBD();
+                                                $lista = $bd->listProduto($_GET['subcategoria']);
+                                                while ($linha = $lista->fetch(PDO::FETCH_OBJ)) {
+                                                    $query = $bd->listAnaliseProduto($linha->id);
                                                     if (!empty($query->descricao)) {
                                                         ?>
                                                         <tr>

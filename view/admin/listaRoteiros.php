@@ -273,9 +273,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 while ($linha = $lista->fetch(PDO::FETCH_ASSOC)) {
                                                     ?>
                                                     <tr>
-                                                        <td><?php echo $linha['roteiro_id']; ?></td>
-                                                        <td><?php echo $linha['nome_fantasia']; ?></td>
-                                                        <td><?php echo $linha['descricao']; ?></td>
+                                                        <td><?php echo utf8_encode($linha['roteiro_id']); ?></td>
+                                                        <td><?php echo utf8_encode($linha['nome_fantasia']); ?></td>
+                                                        <td><?php echo utf8_encode($linha['descricao']); ?></td>
                                                     </tr>
                                                     <?php
                                                 }

@@ -341,10 +341,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <?php
                                 if (!empty($_GET)) {
                                     $subCategoria = $_GET['subcategoria'];
-                                    $resultado = $obj1->listProduto($subCategoria);
-                                    foreach ($resultado->fetchAll() as $linha) {
+                                    $produto = $obj1->listProduto($subCategoria);
+                                    foreach ($produto->fetchAll() as $linha) {
+                                        $array = null;
                                         $array = $obj1->graficoConcorrencia($linha['id']);
-                                        if(!empty($array[0]->descricao) && $array[0]->descricao == 0 && $array[0]->descricao != null){
+                                        if(!empty($array[0]) && $array[0]->idProduto != 0 && $array[0]->descricao != null){
                                         ?>
                                         <canvas id="GraficoBarra<?php echo $linha['id']; ?>" style="width:80%;"></canvas>
                                         <br/>
@@ -355,15 +356,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="fa fa-square" style="color: #00ff00"></i> Presença
                                         <i class="fa fa-square" style="color: #22cfc6"></i> Cobertura
                                         </div>
-
                                         <script type="text/javascript">
                                             var info = <?php echo json_encode($array); ?>;
-                                            if((info[0]['descricao'] != null && info[0]['descricao'] !== undefined && info[0]['descricao'] != 0)){
                                               var nomes = [];
                                               var dados1 = [];
                                               var dados2 = [];
                                               var dados3 = [];
                                               var dados4 = [];
+
+                                              console.log(info);
 
                                               nomes.push(info[0]['descricao']);
                                               dados1.push(info[0]['pdv']);
@@ -421,16 +422,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                       }
                                                   ]
                                               };
-                                          }
 
 
                                         </script>
                                         </body>
                                         <script>
-                                        if((info[0]['descricao'] != null && info[0]['descricao'] !== undefined && info[0]['descricao'] != 0)){
                                             var ctx<?php echo $linha['id']; ?> = document.getElementById("GraficoBarra<?php echo $linha['id']; ?>").getContext("2d");
                                             var BarChart<?php echo $linha['id']; ?> = new Chart(ctx<?php echo $linha['id']; ?>).Bar(data, options);
-                                          }
                                         </script>
                                         <?php
                                       }
